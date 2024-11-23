@@ -5,16 +5,19 @@ pipeline {
         FLUTTER_HOME = 'C:/flutter'
         PATH = "$FLUTTER_HOME/bin;C:/Program Files/Git/bin;$PATH"
     }
-
+ tools {
+       flutter 'stable'  // Or your desired version - best practice to declare this
+       jdk 'latest'
+    }
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/luckyjayagroup/leontech02.git'
             }
         }
-        stage('Install Dependencies') {
+        stage('Install Dependencies') { 
             steps {
-                bat 'pubget.bat'
+                sh 'flutter pub get' // Use sh directly now
             }
         }
         stage('Analyze') {
