@@ -2,9 +2,14 @@ pipeline {
     agent any
     environment {
         FLUTTER_HOME = 'C:/flutter'
-        PATH = "$FLUTTER_HOME/bin:$PATH;C:/Program Files/Git/bin"
+        PATH = "$FLUTTER_HOME/bin;C:/Program Files/Git/bin;$PATH"
     }
     stages {
+        stage('Verify PATH') {
+            steps {
+                bat 'echo %PATH%'
+            }
+        }
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/luckyjayagroup/baru.git'
