@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                sh 'flutter pub get' // Use sh for cross-platform compatibility
+                bat 'pubget.bat'
             }
         }
         stage('Analyze') {
