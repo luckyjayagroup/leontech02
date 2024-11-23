@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Install Dependencies') { 
             steps {
-                bat "${FLUTTER_HOME}flutter pub get" // Use sh directly now
+                sh "flutter pub get" // Use sh directly now
             }
         }
         stage('Analyze') {
