@@ -2,13 +2,11 @@ pipeline {
     agent any
 
         environment {
-        FLUTTER_HOME = 'C:/flutter'
-        PATH = "$FLUTTER_HOME/bin;C:/Program Files/Git/bin;$PATH"
+        FLUTTER_HOME = 'C:\\flutter'
+        JAVA_HOME = 'C:\\Program Files\\Java\\jdk-20'
+        PATH = "$FLUTTER_HOME\\bin;$FLUTTER_HOME\\tools\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\Git\\cmd\\bin;$PATH"
     }
- tools {
-       flutter 'stable'  // Or your desired version - best practice to declare this
-       jdk 'latest'
-    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -17,7 +15,7 @@ pipeline {
         }
         stage('Install Dependencies') { 
             steps {
-                sh 'flutter pub get' // Use sh directly now
+                bat "${FLUTTER_HOME}flutter pub get" // Use sh directly now
             }
         }
         stage('Analyze') {
