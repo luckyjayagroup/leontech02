@@ -4,7 +4,7 @@ pipeline {
         environment {
         FLUTTER_HOME = 'C:\\flutter\\bin'
         JAVA_HOME = 'C:\\Program Files\\Java\\jdk-20'
-        PATH = "$FLUTTER_HOME\\bin;$FLUTTER_HOME\\tools\bin;C:\\Program Files\\Git\\git;C:\\Program Files\\Git\\cmd;$PATH"
+        PATH = "$FLUTTER_HOME\\bin;$FLUTTER_HOME\\tools\bin;C:\\Program Files\\Git\\bin;C:\\Program Files\\Git\\cmd;$PATH"
     }
 
     stages {
