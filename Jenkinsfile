@@ -13,9 +13,14 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/luckyjayagroup/leontech02.git'
             }
         }
+        stage('de doctor') { 
+            steps {
+                sh "flutter doctor -v"
+            }
+        }
         stage('Install Dependencies') { 
             steps {
-                sh "flutter pub get" // Use sh directly now
+                sh "flutter pub get"
             }
         }
         stage('Analyze') {
