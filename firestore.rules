@@ -1,0 +1,21 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Mengizinkan pengguna terautentikasi untuk membuat dokumen baru
+    match /users/{userId} {
+      // Pengguna dapat membuat dokumen baru jika mereka terautentikasi
+      allow create: if request.auth != null;
+      
+      // Pengguna dapat membaca dokumen pengguna lain
+      allow read: if request.auth != null;
+
+      // Pengguna dapat mengedit atau menghapus data mereka sendiri,
+      // atau jika tipe pengguna adalah 'Administrator' (type = 1)
+      allow update, delete: if request.auth != null && (
+        request.auth.uid == userId || 
+        (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.type == 1)
+      );
+    }
+  }
+}

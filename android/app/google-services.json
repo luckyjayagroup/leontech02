@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "649322817470",
+    "project_id": "luckyjayagroupleontech",
+    "storage_bucket": "luckyjayagroupleontech.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:649322817470:android:234494c9c96117cf4dbbef",
+        "android_client_info": {
+          "package_name": "com.luckyjayagroup.leontech"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbraNEQqLCnJABz2HfYQsAkYo9TtUGB_8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
