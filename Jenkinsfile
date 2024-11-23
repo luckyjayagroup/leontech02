@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/luckyjayagroup/baru.git'
+                git branch: 'main', url: 'https://github.com/luckyjayagroup/leontech02.git'
             }
         }
         stage('Verify Git') {
