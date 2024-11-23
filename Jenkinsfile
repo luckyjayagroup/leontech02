@@ -2,7 +2,7 @@ pipeline {
     agent any
 
         environment {
-        FLUTTER_HOME = 'C:\\flutter'
+        FLUTTER_HOME = 'C:\\flutter\\bin'
         JAVA_HOME = 'C:\\Program Files\\Java\\jdk-20'
         PATH = "$FLUTTER_HOME\\bin;$FLUTTER_HOME\\tools\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\Git\\cmd\\bin;$PATH"
     }
@@ -11,6 +11,11 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/luckyjayagroup/leontech02.git'
+            }
+        }
+        stage('Flutter Bdoctor') {
+            steps {
+                bat "${FLUTTER_HOME}\\flutter doctor -v"
             }
         }
         stage('de doctor') { 
