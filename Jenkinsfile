@@ -20,6 +20,14 @@ pipeline {
                 bat 'git --version'
             }
         }
+        stage('BUILD') {
+            steps {
+                sh '''
+                  #!/bin/sh
+                  flutter build apk --debug
+                  '''
+            }
+        }
         stage('Install Dependencies') {
             steps {
                 bat 'flutter pub get'
