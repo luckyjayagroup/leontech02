@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/luckyjayagroup/baru.git'
+                git branch: 'main', url: 'https://github.com/luckyjayagroup/baru.git'
             }
         }
         stage('Install Dependencies') {
