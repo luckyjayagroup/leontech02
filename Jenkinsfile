@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    tools {
-        flutter 'latest' // Or specify a version
-        jdk 'latest' // Ensure a JDK is available, specify version as needed
+        environment {
+        FLUTTER_HOME = 'C:/flutter'
+        PATH = "$FLUTTER_HOME/bin;C:/Program Files/Git/bin;$PATH"
     }
 
     stages {
