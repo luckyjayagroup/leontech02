@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
+import 'package:leontech/core/utils/env.dart';
 import 'package:leontech/core/utils/function_string.dart';
 import 'package:leontech/core/utils/userdata.dart';
 import 'package:leontech/features/auth/auth_middleware.dart';
@@ -185,12 +186,12 @@ class _HomePageState extends State<HomePage> {
             )
         ],
       ),
-      body: HomePage.tabs[_viewIndex].builder(context),
-      /* isMobile(context)
-                ? _body()
+      body: 
+      isMobile(context)
+                ? HomePage.tabs[_viewIndex].builder(context)
                 : Center(
-                    child: SizedBox(width: 600, child: _body()),
-                  ) */
+                    child: SizedBox(width: 600, child: HomePage.tabs[_viewIndex].builder(context)),
+                  ) 
     );
   }
 }

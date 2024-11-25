@@ -7,6 +7,30 @@ import 'package:leontech/core/utils/function.dart';
 import 'package:leontech/core/utils/function_string.dart';
 import 'package:leontech/core/widgets/dialogs/dialogerror.dart';
 
+class CustomResponse extends http.BaseResponse {
+  final String body;
+  CustomResponse({
+    required int statusCode,
+    required this.body,
+    required http.BaseRequest request,
+    Map<String, String>? headers,
+    bool? isRedirect,
+    bool? persistentConnection,
+    int? contentLength,
+    http.Client? client,
+  }) : super(
+          statusCode,
+          request: request,
+          isRedirect: isRedirect ?? false,
+          persistentConnection: persistentConnection ?? true,
+          contentLength: contentLength,
+        );
+  @override
+  String toString() {
+    return 'CustomResponse(statusCode: $statusCode, headers: $headers, body: $body)';
+  }
+}
+
 Future getResponse(String url, Map<String, dynamic> data, {String contentType = 'application/x-www-form-urlencoded', Map<String, String>? aheaders}) async {
   var netService = GetConnect(allowAutoSignedCert: true, timeout: const Duration(seconds: 1000), maxRedirects: 100, maxAuthRetries: 2);
   data = {...data, ...apikey};
@@ -55,27 +79,24 @@ Future getResponse(String url, Map<String, dynamic> data, {String contentType = 
 }
 
 Future<List> executeSQL(String sql) async {
-    try {
-      var response = await http.get(Uri.https(urlExec, urlExcadd2, {'req': encryptData(sql)}));
-      if (response.statusCode == 200) {
-        var jsonResponse = jsonDecode(response.body);
-        return jsonResponse;
-      } else {
-        dp('Request failed with status: ${response.statusCode}.');
-        return [];
-      }
-    } catch (e) {
-      dp(e.toString());
-      dp("sql: $sql");
+  try {
+    var response = await http.get(Uri.https(urlExec, urlExcadd2, {'req': encryptData(sql)}));
+    if (response.statusCode == 200) {
+      var jsonResponse = jsonDecode(response.body);
+      return jsonResponse;
+    } else {
+      dp('Request failed with status: ${response.statusCode}.');
       return [];
     }
-  
+  } catch (e) {
+    dp(e.toString());
+    dp("sql: $sql");
+    return [];
+  }
 }
-
 
 Future<List?> getUrlData(String path, [Map<String, dynamic>? query]) async {
   try {
-    
     var response = await http.get(Uri.https(urlApi, path, query));
     if (response.statusCode == 200) {
       var jsonResponse = json.decode(response.body);
@@ -92,4 +113,3 @@ Future<List?> getUrlData(String path, [Map<String, dynamic>? query]) async {
     return null;
   }
 }
-

@@ -6,6 +6,7 @@ import 'package:leontech/core/utils/function.dart';
 // ignore: unused_import
 import 'package:leontech/core/utils/function_string.dart';
 import 'package:leontech/core/widgets/editor/customtext.dart';
+import 'package:readmore/readmore.dart';
 
 class ListEnv extends StatefulWidget {
   const ListEnv({super.key});
@@ -46,11 +47,10 @@ class _ListEnvState extends State<ListEnv> {
                     filled: true,
                   ),
                   onChanged: (value) {
-                      _debouncer.run(() {
-                   /*  _pagingController.nextPageKey = 0;
+                    _debouncer.run(() {
+                      /*  _pagingController.nextPageKey = 0;
                     _pagingController.refresh(); */
-                  });
-                    
+                    });
                   },
                 )
               : const CustomTextAppBar(text: 'Daftar Env', fontSize: 14),
@@ -58,71 +58,69 @@ class _ListEnvState extends State<ListEnv> {
             IconButton(
               icon: Icon(isSearching ? Icons.close : Icons.search),
               onPressed: () {
-                setState((){
-                isSearching = !isSearching;
-                if (!isSearching) {
-                  searchController.clear();
-                /*     _pagingController.nextPageKey = 0;
-                    _pagingController.refresh();        */           
-                }
-                
+                setState(() {
+                  isSearching = !isSearching;
+                  if (!isSearching) {
+                    searchController.clear();
+                    /*     _pagingController.nextPageKey = 0;
+                    _pagingController.refresh();        */
+                  }
                 });
               },
             ),
           ]),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          var res =await  Get.toNamed('/env/edit');
-          if (res is EnvModel){
+          var res = await Get.toNamed('/env/edit');
+          if (res is EnvModel) {
             setState(() {
               fs.add(res);
             });
           }
-
         },
         child: const Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: RefreshIndicator(
-        onRefresh: () async{
+        onRefresh: () async {
           await FastScript.fetch();
-          setState(() {
-            
-          });
+          setState(() {});
         },
-        
         child: ListView.builder(
-          itemCount: fs.length,
+            itemCount: fs.length,
             itemBuilder: (context, index) {
               return ListTile(
-                
-                onTap: ()async{
-                  
-                  var res = await Get.toNamed('/env/edit', arguments: fs[index]);
-                  if(res is EnvModel){
+                onTap: () async {
+                  var res =
+                      await Get.toNamed('/env/edit', arguments: fs[index]);
+                  if (res is EnvModel) {
                     fs[index] = res;
-                    setState(() {
-                      
-                    });
+                    setState(() {});
                   }
-                
                 },
-                title: Text(fs[index].nama.toString(),style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
-                subtitle: Text(fs[index].skrip??''),
+                title: Text(fs[index].nama.toString(),
+                    style: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.bold)),
+                subtitle: ReadMoreText(
+                  fs[index].skrip ?? '',
+                  trimLines: 4,
+                  colorClickableText: Colors.blue,
+                  trimMode: TrimMode.Line,
+                  trimCollapsedText: 'Read more',
+                  trimExpandedText: 'Show less',
+                ),
                 trailing: IconButton(
-                icon: const Icon(Icons.delete),
-                onPressed: () {
-                  _deleteEnv(fs[index].id); // Trigger the delete function
-                },
-              ),
-                
-              );}
-        ),
+                  icon: const Icon(Icons.delete),
+                  onPressed: () {
+                    _deleteEnv(fs[index].id); // Trigger the delete function
+                  },
+                ),
+              );
+            }),
       ),
-          
-        
     );
   }
+
   Future<void> _deleteEnv(int? id) async {
     // Show a confirmation dialog before deleting
     bool confirmDelete = await showDialog(
@@ -136,9 +134,9 @@ class _ListEnvState extends State<ListEnv> {
             child: const Text('Cancel'),
           ),
           TextButton(
-            onPressed: () async{
+            onPressed: () async {
               var res = await FastScript.deleteEnv(id);
-              Get.back(result:  res);
+              Get.back(result: res);
             },
             child: const Text('Delete'),
           ),
@@ -156,4 +154,3 @@ class _ListEnvState extends State<ListEnv> {
     }
   }
 }
-

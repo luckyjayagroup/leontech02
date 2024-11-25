@@ -29,6 +29,7 @@ class _EnvEditorState extends State<EnvEditor> {
           child: Column(
             children: [
               TextFormField(
+               
                 initialValue: newdata.nama,
                 decoration: const InputDecoration(labelText: 'Nama'),
                 validator: (value) {
@@ -42,18 +43,22 @@ class _EnvEditorState extends State<EnvEditor> {
                 },
               ),
               const SizedBox(height: 10),
-              TextFormField(
-                initialValue: newdata.skrip,
-                decoration: const InputDecoration(labelText: 'Skrip'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter a script';
-                  }
-                  return null;
-                },
-                onChanged: (value) {
-                  newdata.skrip = value;
-                },
+              Expanded(
+                child: TextFormField(
+                   expands: true,
+                  maxLines: null,
+                  initialValue: newdata.skrip,
+                  decoration: const InputDecoration(labelText: 'Skrip'),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a script';
+                    }
+                    return null;
+                  },
+                  onChanged: (value) {
+                    newdata.skrip = value;
+                  },
+                ),
               ),
               const SizedBox(height: 20),
               ElevatedButton(

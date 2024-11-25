@@ -1,63 +1,65 @@
-{
-    "kode": "ALK-AT7-5V",
-    "barcode": null,
-    "id": 14274,
-    "nama": "ACCU AT7-5V ( N-MAX ) ",
-    "idkategori": null,
-    "kategori": null,
-    "idkelompok": 32,
-    "kelompok": "ALKALINE",
-    "idjenis": 2,
-    "jenis": "ACCU",
-    "idmerk": 27,
-    "merk": "ALKALINE",
-    "satuan": "PCS",
-    "beli": 195755.0,
-    "jual": 0.0,
-    "jual1": 235000.0,
-    "jual2": 221300.0,
-    "jual3": 203700.0,
-    "jual4": 217300.0,
-    "jual5": 235000.0,
-    "stok": 8.0,
-    "stokgd": 5.0,
-    "stoknr": 6.0,
-    "stoklokasi": 0.0,
-    "poin": "3",
-    "pembagi": 0.0,
-    "kg": 0.0,
-    "kd": null,
-    "gambar": "1000031227.jpg",
-    "markup1": null,
-    "markup2": "-5,8",
-    "markup3": "-13,3",
-    "markup4": "-7,5",
-    "markup5": "0",
-    "markupbeli": "-16,7",
-    "stokminimal": 0,
-    "minimal": 7.0,
-    "hdasar": "JUAL1",
-    "aktif": false,
-    "supplier": "GCM",
-    "qtydos": 10.0,
-    "minorder": 0.0,
-    "bobot": 0.0,
-    "grade": 0.0,
-    "rak": null,
-    "nama_list": null,
-    "deskripsi": "1",
-    "idgol": 1,
-    "golongan": "Sparepart",
-    "idsatuan": null,
-    "isi": 1.0,
-    "nostok": 0,
-    "harga": null,
-    "iddevisi": 2,
-    "devisi": "Lucky Jaya Motorindo",
-    "liststok": [],
-    "listpeletakan": null,
-    "created": "2023-10-15T08:24:50.000Z",
-    "updated": "2024-11-19 08:59:50",
-    "fileGambar": "https://images.luckyjayagroup.com/sparepart/barang/1000031227.jpg",
-    "fileThumb": "https://images.luckyjayagroup.com/sparepart/barang/thumbs/1000031227.jpg"
-}
+[
+    {
+        "idbarang": "11",
+        "kode": "OLK-ADP-C107M",
+        "nama": "ADAPTER OLIKE ( 2.4A ) - C107M",
+        "merk": "OLIKE",
+        "qtynota": "2"
+    },
+    {
+        "idbarang": "12",
+        "kode": "OLK-ADP-C107C",
+        "nama": "ADAPTER OLIKE ( 2.4A ) - C107C",
+        "merk": "OLIKE",
+        "qtynota": "10"
+    },
+    {
+        "idbarang": "161",
+        "kode": "OLK-KD-D306M",
+        "nama": "KABEL DATA OLIKE MIKRO - D306M",
+        "merk": "OLIKE",
+        "qtynota": "1"
+    },
+    {
+        "idbarang": "172",
+        "kode": "OLK-KD-D602C",
+        "nama": "KABEL DATA OLIKE TYPE C - D602C",
+        "merk": "OLIKE",
+        "qtynota": "10"
+    },
+    {
+        "idbarang": "173",
+        "kode": "OLK-KD-D602L",
+        "nama": "KABEL DATA OLIKE LIGHTNING - D602L",
+        "merk": "OLIKE",
+        "qtynota": "10"
+    },
+    {
+        "idbarang": "174",
+        "kode": "OLK-KD-D602M",
+        "nama": "KABEL DATA OLIKE MIKRO - D602M",
+        "merk": "OLIKE",
+        "qtynota": "3"
+    },
+    {
+        "idbarang": "268",
+        "kode": "OLK-ERP-E100S",
+        "nama": "EARPHONE OLIKE - E100S",
+        "merk": "OLIKE",
+        "qtynota": "3"
+    },
+    {
+        "idbarang": "38",
+        "kode": "OLK-ADP-R5",
+        "nama": "ADAPTER OLIKE CAR - R5",
+        "merk": "OLIKE",
+        "qtynota": "5"
+    },
+    {
+        "idbarang": "51",
+        "kode": "OLK-ERP-E11",
+        "nama": "EARPHONE OLIKE - E11",
+        "merk": "OLIKE",
+        "qtynota": "3"
+    }
+]

@@ -6,7 +6,7 @@ const String homepageimg = 'https://images.luckyjayagroup.com/sparepart/';
 const String urlHome2 = 'https://ljmitdivisi.com/ljmbaru/web';
 const String urlBase = 'https://ljmitdivisi.com/ljmbaru/api';
 const Map<String, dynamic> apikey = {'key':'xskjdfhshdfsf'};
-const String urlApi = 'api.luckyjayagroup.com';
+const String urlApi = 'api.luckyjayagroup.my.id';
 const String urlExec = 'luckyjayagroup.com';
 const String urlExcadd2 = 'leontechdirect/proses.php';
 
